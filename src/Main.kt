@@ -2,7 +2,8 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
 //    блок с выведенным результатом задачи № 1
-    val result1 = task1(str_1)
+    val str1: String = "Ivar Johnsovich Jacobson 35 years old"
+    val result1 = task1(str1)
     println("Фамилия - ${result1[1]}")
     println("Имя - ${result1[0]}")
     println("Возраст - ${result1[3]}")
@@ -31,7 +32,6 @@ fun main() {
 }
 
 // Задача 1 "Переменные" ф-ция возвращает Array<String>
-var str_1: String = "Ivar Johnsovich Jacobson 35 years old"
 
 fun task1(str: String, delim: String = " "): Array<String> {
     val result = str.split(delim).toTypedArray()
@@ -39,7 +39,7 @@ fun task1(str: String, delim: String = " "): Array<String> {
     return result
 }
 
-//Задача 2: "Циклы" ф-ция принимает исходный массив и возвращает элемент не явл. фруктом
+//Задача 2: "Циклы" ф-ция принимает исходный массив и возвращает элемент не явл. фруктом, то есть элемент который не содержится в массиве fruits
 var str_2: Array<String> = arrayOf("Apple", "Banana", "Orange", "100")
 
 fun isFruit(arr: Array<String>): String {
@@ -65,7 +65,6 @@ data class Room(var id: String? = null, var title: Any? = null, var admin: User?
         return "The room id is ${this.validation(this.id)}, it has a title ${this.validation(this.title)} and the admin of the room is ${this.validation(this.admin?.name)}"
     }
     private fun validation(el: Any?): Any{
-        if (el == null) return "N/A"
-        else return el
+        return el ?: "N/A"
     }
 }
